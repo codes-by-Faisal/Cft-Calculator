@@ -1,0 +1,435 @@
+/* -----------------------------
+   CLEAN GLOBAL STYLE
+------------------------------ */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter as specified in HTML */
+    background: #f1f5f9; /* plain light grey for clarity */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Background gradient for a modern feel */
+/* .page-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px; /* Only top part */
+    background:linear-gradient(135deg, #1e293b 0%, #334155 100%); /* Dark slate blue gradient */
+    z-index: -1;
+} */
+
+/* App container */
+.app {
+    width: 96%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0 40px; /* More padding at the bottom */
+}
+
+/* App Header */
+/* .app-header {
+    text-align: center;
+    color: white;
+    padding: 40px 0 30px;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.9;
+} */
+/* HEADER FIX — BLUE CARD STYLE */
+/* .app-header {
+    background: #2563eb;        /* Pure Blue 
+    color: white;               
+    padding: 35px 20px;
+    border-radius: 18px;        /* Smooth card look 
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+}
+ */
+/* FORCE HEADER BACKGROUND CHANGE */
+.app-header {
+    background: #2563eb !important;   /* BLUE CARD */
+    color: white !important;
+    padding: 35px 20px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    display: block;    /* ensure block formatting */
+    position: relative;
+    z-index: 5;
+    background: red !important;
+}
+
+
+
+
+
+/* Title */
+.logo {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+    color: white;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.95;
+    color: white;
+}
+
+
+
+
+/* Main content Card */
+.card {
+    background: #ffffff; /* solid white */
+    padding: 30px; /* Increased padding */
+    border-radius: 16px; /* Increased radius for softness */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Stronger shadow for depth */
+    margin-bottom: 25px;
+}
+
+/* -----------------------------
+   CONTROLS/ACTIONS LAYOUT
+------------------------------ */
+/* Using Flexbox for control rows */
+.controls-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Photo column is smaller */
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Upload Section */
+.upload {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+#photoUpload {
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.upload .btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Actions/Bulk Section */
+.actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows wrap for smaller screens */
+    gap: 10px;
+}
+
+.actions .btn {
+    flex-grow: 1; /* Distributes primary buttons evenly */
+}
+
+.bulk-section {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bulk-box {
+    width: 100%;
+    min-height: 120px; /* Use min-height */
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #1e293b;
+    resize: vertical;
+    box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+.bulk-section .btn {
+    width: 100%; /* Full width button below textarea */
+}
+
+/* -----------------------------
+   BUTTONS
+------------------------------ */
+.btn {
+    padding: 12px 20px; /* Larger buttons */
+    border: none;
+    border-radius: 10px; /* Softer corners */
+    cursor: pointer;
+    font-size: 15px; /* Slightly larger text */
+    font-weight: 700;
+    color: white;
+    transition: all 0.25s ease;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Slight lift instead of scale */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Button colors */
+.primary { background: #2563eb; }   /* blue */
+.primary:hover { background: #1d4ed8; }
+.success { background: #16a34a; }   /* green */
+.success:hover { background: #15803d; }
+.download { background: #d97706; }  /* amber - Changed from info */
+.download:hover { background: #b45309; }
+
+/* Delete button */
+.delete-btn {
+    background: #dc2626; /* red */
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+/* -----------------------------
+   TABLE (cft-table for consistency)
+------------------------------ */
+.table-wrap {
+    overflow-x: auto; /* Ensures responsiveness */
+}
+
+.cft-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 2px solid #94a3b8;
+    border-radius: 12px; /* Increased radius */
+    overflow: hidden;
+    margin-top: 0; /* Removed margin-top for cleaner integration */
+    min-width: 600px; /* Minimum width for table on small screens */
+}
+
+.cft-table thead {
+    background: #1e293b;
+}
+
+.cft-table th {
+    color: #ffffff;
+    font-size: 14px; /* Slightly smaller header font */
+    font-weight: 700;
+    padding: 15px 10px;
+    border: 1px solid #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cft-table td {
+    padding: 14px 8px; /* Slightly more vertical padding */
+    font-size: 14px;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+}
+
+.cft-table td[contenteditable="true"] {
+    background: #f9fafb; /* Slightly different background for editable cells */
+    transition: background-color 0.1s;
+}
+.cft-table td[contenteditable="true"]:focus {
+    outline: 2px solid #3b82f6; /* Blue outline on focus */
+    background: #ffffff;
+}
+
+.cft-table tbody tr:hover td {
+    background: #e2e8f0;
+}
+
+/* -----------------------------
+   SUMMARY BOXES (New layout)
+------------------------------ */
+.summary-row {
+    display: flex;
+    justify-content: flex-end; /* Push to the right */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.total-box {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: right;
+}
+
+/* Individual summary boxes for better styling */
+.summary-box {
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: left;
+    min-width: 180px;
+}
+
+.total {
+    background: #f0fdf4; /* Light success green */
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+}
+
+.first-n {
+    background: #fef3c7; /* Light warning amber */
+    border: 1px solid #fcd34d;
+    color: #b45309;
+}
+
+.summary-box .label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.summary-box .big {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.first-n label, .first-n .small {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.first-n input {
+    width: 80px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #fcd34d;
+    margin-right: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.first-n .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+/* Footer */
+.card-footer {
+    border-top: 1px solid #e2e8f0;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.card-footer small {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Animation */
+.row-animate {
+    animation: fadeIn 0.3s ease;
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .controls-row {
+        grid-template-columns: 1fr;
+    }
+    .summary-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .summary-box {
+        min-width: 100%;
+        text-align: center;
+    }
+    .first-n input {
+        width: 40%;
+    }
+    .first-n .btn {
+        width: 40%;
+    }
+    .first-n .small {
+        margin-top: 15px;
+    }
+}
+/* FIX PAGE BACKGROUND OVERLAY */
+.page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1 !important;   /* move background behind everything */
+}
+
+/* FORCE BLUE HEADER */
+.app-header {
+    background: #2563eb !important;  /* blue */
+    color: white !important;
+    padding: 35px 20px;
+    border-radius: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;  /* ensure header is above gradient */
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+    color: white;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.95;
+    color: white;
+}
