@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CFT Calculator</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page-bg"></div> 
+  <div class="app">
+    <header class="app-header">
+      <div class="logo"> CFT Log Volume Calculator</div>
+      <div class="subtitle">Measure logs, calculate volume, and export reports with ease.</div>
+    </header>
+
+    <main class="card"> 
+      
+      <section class="controls-row"> 
+        
+        <div class="upload">
+          <label class="file-label" for="photoUpload">Upload Log Photo (for OCR)</label>
+          <input id="photoUpload" type="file" accept="image/*">
+          <button class="btn primary" onclick="processPhoto()">🚀 Extract Logs from Photo</button>
+
+          <small>
+            Tip (Photo): Use only printed digits (no handwritten). Format: <b>4-0-48</b><br><br>
+            🎤 <b>Voice Input Tip:</b><br>
+            The system is now optimized for English lang only(say like:-eg:(2)two (6)six twelve(12)). Speak clearly with the three numbers (A, B, C). Example: • <b>“4, 0, 48”</b><br>
+            If the system merges digits (like 4048), speak with small pauses.
+          </small>
+        </div>
+
+        <div class="bulk-section">
+          <textarea id="bulkInput" class="bulk-box" placeholder="Paste A-B-C logs here (e.g., 4-0-52)..."></textarea>
+          <button class="btn primary" onclick="addBulkLogs()">📥 Add Multiple Logs</button>
+
+          <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
+    
+            <button id="startVoiceBtn" class="btn success" onclick="startMultiVoice()">🎤 Start Multiple Voice Logs</button>
+            <button id="stopVoiceBtn" class="btn delete" onclick="stopMultiVoice()">⏹ Stop</button>
+            <span id="voiceStatus" style="font-weight:600;color:#334155;">Idle</span>
+          </div>
+        </div> 
+      </section>
+
+      <section id="tableContainer" class="table-wrap">
+       <div class="actions" style="margin-bottom:10px; display:flex; align-items:center; gap:10px;">
+
+  <button class="btn success" id="addRowBtn" onclick="addRow()">➕ Add Single Log</button>
+
+  <button id="singleVoiceBtn" class="btn success" onclick="startSingleVoice()">🎤 Voice Input (Single)</button>
+
+  <span id="svStatus" style="font-weight:600;color:#334155;">Waiting</span>
+
+</div>
+
+
+        <table id="cftTable" class="cft-table"> 
+          <thead>
+            <tr>
+              <th>Log #</th> 
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>CFT</th>
+              <th>Actions</th> 
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="summary-row">
+        
+        <div class="summary-box total">
+          <div class="label">Total CFT (All Logs)</div>
+          <div id="totalCFT" class="big">0.00</div> 
+          <button class="btn download" onclick="downloadPDF()">⬇️ Download Report PDF</button> 
+        </div>
+
+        <div class="summary-box first-n">
+          <label for="firstN">Calculate First N logs</label>
+          <div style="display: flex; align-items: center; margin-top: 5px;">
+            <input id="firstN" type="number" min="1" placeholder="e.g. 15" />
+            <button class="btn download" onclick="calculateFirstNLogs()">Calculate</button> 
+          </div>
+          <div class="small">First N CFT: 
+            <span id="firstNCFT">0.00</span>
+          </div>
+        </div>
+      </section>
+
+      <footer class="card-footer">
+        <small>Tip: For best OCR results use clear printed numbers and straight photos.</small>
+        <div style="margin-top: 5px; font-size: 0.8em; color: #64748b;">Developed by Faisal</div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/tesseract.js@v4.0.2/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
